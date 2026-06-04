@@ -720,3 +720,312 @@ console.log(Impair)
 
 
 let names=["samir","omar","samir","karim","hamid","samir"]
+
+let youtubePlaylist=["https://www.youtube.com/§è§","https://www.youtube.com/§è§",true,300,"hello"]
+
+
+
+
+
+// console.log(youtubePlaylist[youtubePlaylist.length-1])
+// console.log(youtubePlaylist);
+
+// mutable
+// youtubePlaylist[youtubePlaylist.length]="karim";
+
+
+// youtubePlaylist[youtubePlaylist.length]="hatim";
+
+// console.log(youtubePlaylist);
+
+
+
+// let users =[true,12>2,"hello","a",null ,["html","css","js"]]
+
+
+
+// let matrixUsers=[
+//     ["HTML","CSS","JS"],
+//     ["SQL","Mongodb","Postgres"],
+//     ["Java",[
+//         "Spring",
+//         "Laravel",
+//         "Django"
+//     ],"C++"]
+// ]
+
+
+
+
+// console.log(matrixUsers[2][1][2])
+
+
+
+
+// LLM(Large language Model)
+
+
+
+// prompt (text)=> processing=> Reponse(text)
+
+// hello embedding => [ [-0.1227,0.17373,0.18272.], [-0.1227,0.17373,0.18272.],[-0.1227,0.17373,0.18272.]]
+// i 
+// need
+// to
+// generate
+// hi
+// an
+// html
+// code 
+
+
+// RAG
+
+
+
+// string  immutable
+
+
+let name="Morad";
+
+
+
+
+
+// programme qui remplace d l
+
+
+ let text="";
+
+
+
+// for(let i=0;i<name.length;i++){
+//     if(name[i] == "d"){
+//         text=text+"l"
+//     }else{
+//         text=text+name[i]
+
+//     }
+// }
+
+
+// ""+"M"="M"
+// "M"+"o"="Mo"
+
+
+// console.log(text);
+
+// string methods
+
+// let str="'''<html>...</html>";
+
+// console.log(str);
+
+
+
+// // let text2=str.replaceAll("'","");
+// console.log(text2);
+
+
+
+
+
+// let str="KARIM";
+// console.log(str.toUpperCase())
+// console.log(str.toLowerCase());
+
+// TRIM() dynamic remove the start the end 
+
+
+// let password="   omar 123    ";
+
+
+
+// console.log(password)
+
+// console.log(password.trim())
+
+
+
+
+
+
+
+
+
+let str="omar@.comgmail";
+
+
+
+
+
+// console.log(str.slice(-4));
+
+// split 
+
+
+// String => Array
+
+//Array => String 
+
+
+// let newArr=str.split("@")[1].slice(0,5);
+
+// let a=/gmail$/
+
+
+// console.log(a.test(str))
+
+// console.log(newArr)
+
+
+// console.log(["salam","drari"].join("-----"))
+
+
+
+ str="hellotest l jsgdjsd ";
+
+
+console.log(str.indexOf("l",4))
+
+
+
+let a=20;
+
+if(a=10){
+    console.log("hello")
+}
+
+
+
+
+
+ users=[]
+
+
+// let userEntry=null;
+// for(let i=0;i<5;i++){
+//     userEntry=prompt("Insérer Un user:")
+//     if(userEntry.startsWith(" ")){
+//         alert("Imposible d'insérer une valeur avec des espaces au début")
+//     }else{
+//         users[users.length]=userEntry
+//     }
+// }
+
+
+// console.log(users)
+
+
+
+
+// let Str3="hello gomycode";
+
+
+// console.log(Str3.startsWith("test"))
+// console.log(Str3.endsWith("gomycode"))
+
+
+
+let usersEmail = [
+  "maxime56@outlook.com",
+  "tlefevre1993@gmail.com",
+  "tmartin2005@yahoo.com",
+  "mmartin1999@outlook.com",
+  "lucas31@gmail.com",
+  "thomas.smith@gmail.com",
+  "maxime.dubois@gmail.com",
+  "nathan.muller@yahoo.com",
+  "maxime20@outlook.com",
+  "chloe11@gmail.com",
+  "chloe.dubois@gmail.com",
+  "leah26@yahoo.com"
+]
+
+
+
+// let userInput=prompt("veuillez insérer soit : outlook , gmail , yahoo ")
+
+// count logic 
+
+
+// let teststr="leah26@yahoo.com"
+// console.log(teststr.endsWith("yahoo.com"))
+
+
+
+// let counter=0;
+
+
+
+// for(let i of usersEmail){
+
+
+//     if(i.endsWith(userInput+".com")){
+//         // counter=counter+1;
+//         counter++;
+//         // counter+=1
+//     }
+
+
+// }
+
+
+// alert("THe number of emails of type "+userInput+" "+ counter)
+
+
+// veuillez insérer le fournisseur (gmail,outlook , yahoo)
+
+// le nombre des emails de yahoo est 6
+
+
+
+// for(let i of userEmail){
+//     i
+// }
+
+
+
+
+
+
+// numbers 
+
+let myNumber="200";
+
+
+
+
+// MATH
+
+
+// console.log(parseInt(myNumber))
+
+// console.log(+myNumber)
+
+
+
+
+let test=12.5;
+
+
+// console.log(Math.floor(test)) 
+// console.log(Math.ceil(test)) 
+
+
+// console.log(Math.round(test));
+// random
+
+
+console.log(Math.ceil(Math.random()*5))
+
+
+// console.log(Math.PI)
+
+
+
+
+
+// arrays
+// object & function 
+
