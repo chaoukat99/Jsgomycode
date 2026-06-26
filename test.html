@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de devis - Charpente</title>
+    <style>
+        :root {
+            --ink: #1a1d23;
+            --muted: #6b7280;
+            --accent: #c2410c;
+            --accent-hover: #9a3412;
+            --bg: #eceae6;
+            --card: #ffffff;
+            --border: #d8d4cc;
+            --field-bg: #fafaf9;
+            --ring: rgba(194, 65, 12, 0.18);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(1200px 600px at 110% -10%, #f6f3ee 0%, transparent 60%),
+                radial-gradient(900px 500px at -10% 110%, #efe9e1 0%, transparent 55%),
+                var(--bg);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 48px 16px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 860px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow:
+                0 1px 2px rgba(26, 29, 35, 0.04),
+                0 20px 50px -24px rgba(26, 29, 35, 0.25);
+            overflow: hidden;
+        }
+
+        .card__header {
+            position: relative;
+            padding: 34px 40px 28px;
+            background: linear-gradient(135deg, #1f2329 0%, #2c323b 100%);
+            color: #fff;
+        }
+
+        .card__header::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #f59e0b);
+        }
+
+        .eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #f6b27a;
+            font-weight: 600;
+            margin: 0 0 8px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            line-height: 1.2;
+            margin: 0 0 6px;
+            font-weight: 700;
+        }
+
+        .card__header p {
+            margin: 0;
+            color: #b9bec7;
+            font-size: 0.94rem;
+        }
+
+        form {
+            padding: 32px 40px 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 7px;
+            letter-spacing: 0.01em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 11px 13px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--ink);
+            background: var(--field-bg);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        input::placeholder, textarea::placeholder { color: #aab0ba; }
+
+        input:hover, select:hover, textarea:hover { border-color: #c2bcb1; }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: #fff;
+            box-shadow: 0 0 0 4px var(--ring);
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 13px center;
+            padding-right: 38px;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 92px;
+        }
+
+        /* Layout: make long fields span full width */
+        .field { display: flex; flex-direction: column; }
+        .field--full { grid-column: 1 / -1; }
+
+        /* Hide the <br> tags' effect inside the grid */
+        form br { display: none; }
+
+        .actions {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 6px;
+            padding-top: 22px;
+            border-top: 1px solid #eee9e1;
+        }
+
+        button {
+            appearance: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.96rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--accent);
+            padding: 13px 26px;
+            border-radius: 10px;
+            letter-spacing: 0.01em;
+            box-shadow: 0 8px 18px -8px rgba(194, 65, 12, 0.6);
+            transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+        }
+
+        button:hover { background: var(--accent-hover); }
+        button:active { transform: translateY(1px); }
+
+        #status {
+            margin: 0 40px 32px;
+            padding: 0;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--muted);
+            min-height: 1.2em;
+        }
+        #status:not(:empty) {
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 24px 12px; }
+            .card__header { padding: 26px 22px 22px; }
+            form { padding: 24px 22px 8px; grid-template-columns: 1fr; }
+            #status { margin: 0 22px 24px; }
+            .field--full { grid-column: auto; }
+        }
+      
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="card__header">
+            <p class="eyebrow">Bureau d'études — Charpente</p>
+            <h1>Demande de devis</h1>
+            <p>Renseignez les détails de votre projet. Notre équipe vous recontactera rapidement.</p>
+        </div>
+
+    <form id="charpenteForm">
+       
+
+        <div class="field"><label>Client / Entreprise</label>
+        <input type="text" name="client" required><br></div>
+
+        <div class="field"><label>Contact client</label>
+        <input type="text" name="contact" required><br></div>
+
+        <div class="field field--full"><label>Objet du projet</label>
+        <input type="text" name="objet" required><br></div>
+
+        <div class="field"><label>Lieu / Chantier</label>
+        <input type="text" name="lieu" required><br></div>
+
+        <div class="field"><label>Type de charpente</label>
+        <select name="type_charpente" required>
+            <option value="" disabled selected>Sélectionner</option>
+            <option>Charpente métallique</option>
+            <option>Charpente bois</option>
+            <option>Charpente mixte</option>
+            <option>Autre</option>
+        </select><br></div>
+
+        <div class="field"><label>Documents reçus</label>
+        <input type="text" name="documents"><br></div>
+
+        <div class="field"><label>Date limite réponse</label>
+        <input type="date" name="date_limite"><br></div>
+
+        <div class="field"><label>Statut</label>
+        <select name="statut">
+            <option value="" disabled selected>Sélectionner</option>
+            <option>Nouveau</option>
+            <option>En cours</option>
+            <option>En attente</option>
+            <option>Traité</option>
+        </select><br></div>
+
+        <div class="field"><label>Tonnage estimé (T)</label>
+        <input type="number" step="0.1" name="tonnage"><br></div>
+
+        <div class="field"><label>Montant estimé (DH)</label>
+        <input type="number" step="0.01" name="montant"><br></div>
+
+        <div class="field"><label>Devis envoyé</label>
+        <select name="devis_envoye">
+            <option value="" disabled selected>Sélectionner</option>
+            <option>Oui</option>
+            <option>Non</option>
+        </select><br></div>
+
+        <div class="field"><label>Date envoi devis</label>
+        <input type="date" name="date_envoi_devis"><br></div>
+
+        <div class="field"><label>Relance prévue</label>
+        <input type="date" name="relance_prevue"><br></div>
+
+        <div class="field"><label>Résultat</label>
+        <select name="resultat">
+            <option value="" disabled selected>Sélectionner</option>
+            <option>Gagné</option>
+            <option>Perdu</option>
+            <option>En négociation</option>
+            <option>Sans suite</option>
+        </select><br></div>
+
+        <div class="field field--full"><label>Remarques / Suivi</label>
+        <textarea name="remarques"></textarea><br></div>
+
+        <div class="actions">
+            <button type="submit">Envoyer la demande</button>
+        </div>
+    </form>
+
+    <p id="status"></p>
+    </div>
+
+    <script>
+        document.getElementById("charpenteForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = Object.fromEntries(new FormData(e.target).entries());
+
+            fetch("https://saadaccounttest.app.n8n.cloud/webhook-test/demande-charpente", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(result => {
+                    console.log("Success:", result);
+                    document.getElementById("status").textContent = "Demande envoyée avec succès.";
+                    e.target.reset();
+                })
+                .catch(err => {
+                    console.error("Error:", err);
+                    document.getElementById("status").textContent = "Erreur lors de l'envoi.";
+                });
+        });
+    </script>
+</body>
+</html>

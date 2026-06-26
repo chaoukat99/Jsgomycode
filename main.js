@@ -1474,3 +1474,35 @@ function sayHello(){
 // alert the result of 10+20 = 30 ;
 
 
+
+
+
+
+
+let num1 = +prompt("Entre le premier nombre :");
+let num2 = parseInt(prompt("Entre le deuxième nombre :"));
+let operateur = prompt("Entre l'opérateur (+ - * /) :");
+
+function additionner(a, b) { return a + b; }
+function soustraire(a, b) { return a - b; }
+function multiplier(a, b) { return a * b; }
+function diviser(a, b,c) {
+  if (b == 0) {
+    alert("imposible de diviser par 0");
+   }
+  
+   else {alert(`le resulta de  de ${a} ${c} ${b}= ${a/b}`)}
+  
+}
+
+switch(operateur){
+    case "+":{alert(`le resulta de  de ${num1} ${operateur} ${num2}= ${additionner(num1,num2)} `)}
+    break
+     case "-":{alert(`le resulta de  de ${num1} ${operateur} ${num2}= ${soustraire(num1,num2)} `)}
+     break
+      case "*":{alert(`le resulta de  de ${num1} ${operateur} ${num2}= ${multiplier(num1,num2)} `)}
+     break
+      case "/":{diviser(num1,num2,operateur)}
+     break
+default:{alert("l operateur invalide !")}
+    }
