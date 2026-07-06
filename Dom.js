@@ -421,7 +421,7 @@ let div = document.createElement("div");
 let span = document.createElement("span");
 
 span.innerHTML="Hello this is span "
-
+{/* <span>Hello this is span</span> */}
 
 div.append(span);
 console.log(div);
@@ -435,7 +435,7 @@ let image = document.createElement("img");
 let link = document.createElement("a");
 
 
-title.innerHTML="M3a Glovo Mkynsh neass  ";
+title.innerHTML="M3a Glovo Mkynsh neass";
 
 
 
@@ -478,17 +478,20 @@ let myAdContainer= document.querySelector(".ad");
 
 
 
-setTimeout(()=>{
-    myAdContainer.append(article)
-},6000)
+// setTimeout(()=>{
+//     myAdContainer.append(article)
+// },6000)
 
 
  btn = document.querySelector("button");
 
 
+//  btn.classList.add("cls")
 
+
+//  btn.className="hehe"
 btn.onclick=()=>{
     // article.remove()
-
+myAdContainer.append(article);
     article.classList.toggle("hide")
 }
