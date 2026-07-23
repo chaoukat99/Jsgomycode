@@ -76,3 +76,85 @@ let btn2= document.querySelector(".btn")
 
 
 
+
+
+
+
+
+
+
+
+// btn2.onclick=()=>{
+
+//     // open a pupup 
+
+// window.open(
+//   'https://google.com', 
+//    "_blank",
+//   'width=600px,height=400px'
+// );
+
+
+
+// }
+
+
+
+
+// location 
+
+
+// reload 
+
+// href 
+// protocol
+
+
+// console.log( window.location.href)
+
+
+btn2.onclick=()=>{
+//   setTimeout(()=>{
+//   window.location.href="https://www.google.com"
+//   },3000)
+
+
+
+// window.location.reload();
+
+// history
+
+
+
+// window.history.back()
+// window.history.forward()
+
+
+
+// window.history.go(1)
+
+
+}
+
+
+
+// locastorage 
+
+
+// to insert and modify   values into localstorage 
+
+
+// localStorage.setItem("usename","Samir");
+//  localStorage.setItem("usename","hakim");
+
+
+
+// to read the value of localstorage 
+
+
+// console.log(localStorage.getItem("username"))
+
+
+// localStorage.removeItem("usename")
+
+// localStorage.clear();
