@@ -1,313 +1,183 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demande de devis - Charpente</title>
+    <title>MuleSoft: The Future of Connectivity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --ink: #1a1d23;
-            --muted: #6b7280;
-            --accent: #c2410c;
-            --accent-hover: #9a3412;
-            --bg: #eceae6;
-            --card: #ffffff;
-            --border: #d8d4cc;
-            --field-bg: #fafaf9;
-            --ring: rgba(194, 65, 12, 0.18);
-        }
-
-        * { box-sizing: border-box; }
-
         body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
             margin: 0;
-            min-height: 100vh;
-            font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--ink);
-            background:
-                radial-gradient(1200px 600px at 110% -10%, #f6f3ee 0%, transparent 60%),
-                radial-gradient(900px 500px at -10% 110%, #efe9e1 0%, transparent 55%),
-                var(--bg);
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 48px 16px;
-        }
-
-        .card {
-            width: 100%;
-            max-width: 860px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            box-shadow:
-                0 1px 2px rgba(26, 29, 35, 0.04),
-                0 20px 50px -24px rgba(26, 29, 35, 0.25);
             overflow: hidden;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         }
 
-        .card__header {
-            position: relative;
-            padding: 34px 40px 28px;
-            background: linear-gradient(135deg, #1f2329 0%, #2c323b 100%);
-            color: #fff;
+        .step {
+            width: 1000px;
+            height: 600px;
+            padding: 60px;
+            box-sizing: border-box;
+            border-radius: 24px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.2;
+            filter: blur(10px);
+            transition: opacity 1s, filter 1s, transform 1s;
         }
 
-        .card__header::after {
-            content: "";
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), #f59e0b);
-        }
-
-        .eyebrow {
-            font-size: 0.72rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #f6b27a;
-            font-weight: 600;
-            margin: 0 0 8px;
+        .step.active {
+            opacity: 1;
+            filter: blur(0px);
         }
 
         h1 {
-            font-size: 1.6rem;
-            line-height: 1.2;
-            margin: 0 0 6px;
-            font-weight: 700;
+            font-size: 80px;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .card__header p {
-            margin: 0;
-            color: #b9bec7;
-            font-size: 0.94rem;
+        h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #38bdf8;
         }
 
-        form {
-            padding: 32px 40px 12px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px 24px;
+        p {
+            font-size: 28px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #e2e8f0;
         }
 
-        label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 7px;
-            letter-spacing: 0.01em;
+        .overlay-blue {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000');
         }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 11px 13px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            color: var(--ink);
-            background: var(--field-bg);
-            border: 1px solid var(--border);
-            border-radius: 9px;
-            transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-            appearance: none;
-            -webkit-appearance: none;
+        .overlay-network {
+            background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc91?auto=format&fit=crop&q=80&w=1000');
         }
 
-        input::placeholder, textarea::placeholder { color: #aab0ba; }
-
-        input:hover, select:hover, textarea:hover { border-color: #c2bcb1; }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: #fff;
-            box-shadow: 0 0 0 4px var(--ring);
+        .overlay-api {
+            background-image: linear-gradient(rgba(88, 28, 135, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1518433278985-18603612803b?auto=format&fit=crop&q=80&w=1000');
         }
 
-        select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 13px center;
-            padding-right: 38px;
-            cursor: pointer;
+        .overlay-speed {
+            background-image: linear-gradient(rgba(20, 184, 166, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000');
         }
 
-        textarea {
-            resize: vertical;
-            min-height: 92px;
+        .overlay-secure {
+            background-image: linear-gradient(rgba(153, 27, 27, 0.8), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000');
         }
 
-        /* Layout: make long fields span full width */
-        .field { display: flex; flex-direction: column; }
-        .field--full { grid-column: 1 / -1; }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
 
-        /* Hide the <br> tags' effect inside the grid */
-        form br { display: none; }
-
-        .actions {
-            grid-column: 1 / -1;
+        .feature-list li {
+            font-size: 24px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-top: 6px;
-            padding-top: 22px;
-            border-top: 1px solid #eee9e1;
         }
 
-        button {
-            appearance: none;
+        .feature-list li::before {
+            content: '→';
+            margin-right: 15px;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        #overview {
+            background: transparent;
+            box-shadow: none;
             border: none;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.96rem;
-            font-weight: 600;
-            color: #fff;
-            background: var(--accent);
-            padding: 13px 26px;
-            border-radius: 10px;
-            letter-spacing: 0.01em;
-            box-shadow: 0 8px 18px -8px rgba(194, 65, 12, 0.6);
-            transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+            opacity: 0;
         }
 
-        button:hover { background: var(--accent-hover); }
-        button:active { transform: translateY(1px); }
-
-        #status {
-            margin: 0 40px 32px;
-            padding: 0;
-            font-size: 0.92rem;
-            font-weight: 500;
-            color: var(--muted);
-            min-height: 1.2em;
+        #overview.active {
+            opacity: 1;
         }
-        #status:not(:empty) {
-            padding: 12px 16px;
-            border-radius: 10px;
-            background: #f0fdf4;
-            color: #166534;
-            border: 1px solid #bbf7d0;
-        }
-
-        @media (max-width: 640px) {
-            body { padding: 24px 12px; }
-            .card__header { padding: 26px 22px 22px; }
-            form { padding: 24px 22px 8px; grid-template-columns: 1fr; }
-            #status { margin: 0 22px 24px; }
-            .field--full { grid-column: auto; }
-        }
-      
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="card__header">
-            <p class="eyebrow">Bureau d'études — Charpente</p>
-            <h1>Demande de devis</h1>
-            <p>Renseignez les détails de votre projet. Notre équipe vous recontactera rapidement.</p>
+    <div id="impress">
+
+        <div id="intro" class="step overlay-blue" data-x="0" data-y="0" data-z="0" data-scale="1">
+            <h1>MuleSoft</h1>
+            <p>The World’s #1 Integration and API Platform. Unleash the power of your data by connecting every application, data source, and device.</p>
         </div>
 
-    <form id="charpenteForm">
-       
-
-        <div class="field"><label>Client / Entreprise</label>
-        <input type="text" name="client" required><br></div>
-
-        <div class="field"><label>Contact client</label>
-        <input type="text" name="contact" required><br></div>
-
-        <div class="field field--full"><label>Objet du projet</label>
-        <input type="text" name="objet" required><br></div>
-
-        <div class="field"><label>Lieu / Chantier</label>
-        <input type="text" name="lieu" required><br></div>
-
-        <div class="field"><label>Type de charpente</label>
-        <select name="type_charpente" required>
-            <option value="" disabled selected>Sélectionner</option>
-            <option>Charpente métallique</option>
-            <option>Charpente bois</option>
-            <option>Charpente mixte</option>
-            <option>Autre</option>
-        </select><br></div>
-
-        <div class="field"><label>Documents reçus</label>
-        <input type="text" name="documents"><br></div>
-
-        <div class="field"><label>Date limite réponse</label>
-        <input type="date" name="date_limite"><br></div>
-
-        <div class="field"><label>Statut</label>
-        <select name="statut">
-            <option value="" disabled selected>Sélectionner</option>
-            <option>Nouveau</option>
-            <option>En cours</option>
-            <option>En attente</option>
-            <option>Traité</option>
-        </select><br></div>
-
-        <div class="field"><label>Tonnage estimé (T)</label>
-        <input type="number" step="0.1" name="tonnage"><br></div>
-
-        <div class="field"><label>Montant estimé (DH)</label>
-        <input type="number" step="0.01" name="montant"><br></div>
-
-        <div class="field"><label>Devis envoyé</label>
-        <select name="devis_envoye">
-            <option value="" disabled selected>Sélectionner</option>
-            <option>Oui</option>
-            <option>Non</option>
-        </select><br></div>
-
-        <div class="field"><label>Date envoi devis</label>
-        <input type="date" name="date_envoi_devis"><br></div>
-
-        <div class="field"><label>Relance prévue</label>
-        <input type="date" name="relance_prevue"><br></div>
-
-        <div class="field"><label>Résultat</label>
-        <select name="resultat">
-            <option value="" disabled selected>Sélectionner</option>
-            <option>Gagné</option>
-            <option>Perdu</option>
-            <option>En négociation</option>
-            <option>Sans suite</option>
-        </select><br></div>
-
-        <div class="field field--full"><label>Remarques / Suivi</label>
-        <textarea name="remarques"></textarea><br></div>
-
-        <div class="actions">
-            <button type="submit">Envoyer la demande</button>
+        <div id="challenge" class="step overlay-network" data-x="2000" data-y="0" data-z="-1000" data-rotate-y="90">
+            <h2>The Data Silo Crisis</h2>
+            <p>Organizations today use an average of 900+ applications, but only 28% of them are integrated. This creates friction, slows innovation, and stunts growth.</p>
+            <ul class="feature-list">
+                <li>Fragmented customer experiences</li>
+                <li>Manual data entry errors</li>
+                <li>High maintenance costs</li>
+            </ul>
         </div>
-    </form>
 
-    <p id="status"></p>
+        <div id="api-led" class="step overlay-api" data-x="2000" data-y="2000" data-z="0" data-rotate-x="90">
+            <h2>API-Led Connectivity</h2>
+            <p>Moving beyond point-to-point code. MuleSoft's methodology categorizes APIs into three distinct layers:</p>
+            <ul class="feature-list">
+                <li><strong>System APIs:</strong> Accessing core systems of record.</li>
+                <li><strong>Process APIs:</strong> Orchestrating data across systems.</li>
+                <li><strong>Experience APIs:</strong> Delivering data to the end-user.</li>
+            </ul>
+        </div>
+
+        <div id="platform" class="step overlay-speed" data-x="0" data-y="2000" data-z="1000" data-rotate-z="90">
+            <h2>Anypoint Platform</h2>
+            <p>A unified solution for the entire API lifecycle. Design, build, manage, and monitor your ecosystem from a single pane of glass.</p>
+            <ul class="feature-list">
+                <li>Design Center: Mock and test APIs</li>
+                <li>Exchange: Discover and reuse assets</li>
+                <li>Management Center: Control and analyze traffic</li>
+            </ul>
+        </div>
+
+        <div id="security" class="step overlay-secure" data-x="-2000" data-y="1000" data-z="2000" data-rotate-y="-90">
+            <h2>Trusted Security</h2>
+            <p>Security is not an afterthought. MuleSoft provides enterprise-grade protection at every layer of the integration stack.</p>
+            <ul class="feature-list">
+                <li>Edge gateway security policies</li>
+                <li>Automated threat protection</li>
+                <li>Compliance with GDPR, HIPAA, and PCI DSS</li>
+            </ul>
+        </div>
+
+        <div id="results" class="step overlay-blue" data-x="-2000" data-y="-1000" data-z="0" data-rotate-x="-90">
+            <h2>Deliver Results Faster</h2>
+            <p>MuleSoft empowers teams to build better experiences, faster than ever before through reusability.</p>
+            <ul class="feature-list">
+                <li>3x Faster project delivery</li>
+                <li>64% Reduction in operational costs</li>
+                <li>Increased developer productivity</li>
+            </ul>
+        </div>
+
+        <div id="overview" class="step" data-x="0" data-y="500" data-z="4000" data-scale="5">
+        </div>
+
     </div>
 
-    <script>
-        document.getElementById("charpenteForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const data = Object.fromEntries(new FormData(e.target).entries());
-
-            fetch("https://saadaccounttest.app.n8n.cloud/webhook-test/demande-charpente", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            })
-                .then(res => res.json())
-                .then(result => {
-                    console.log("Success:", result);
-                    document.getElementById("status").textContent = "Demande envoyée avec succès.";
-                    e.target.reset();
-                })
-                .catch(err => {
-                    console.error("Error:", err);
-                    document.getElementById("status").textContent = "Erreur lors de l'envoi.";
-                });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js"></script>
+    <script>impress().init();</script>
 </body>
 </html>

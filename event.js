@@ -99,10 +99,15 @@ let inp = document.querySelector("input");
 // 
 
 
-window.onkeydown=(ev)=>{
-    if(ev.key=="m" || ev.key=="M" ){
-        let audio=new Audio();
-        audio.src="./audios/MI.mp3";
-        audio.play();
-    }
-}
+// window.onkeydown=(ev)=>{
+//     if(ev.key=="m" || ev.key=="M" ){
+//         let audio=new Audio();
+//         audio.src="./audios/MI.mp3";
+//         audio.play();
+//     }
+// }
+
+
+
+
+
