@@ -1,0 +1,25 @@
+
+
+Un formulaire : 
+
+- Nom complet 
+- Email
+- Mobile
+- password
+- confirmPassword
+
+  
+
+  button Envoyer 
+
+  - nom complet entre 10 et 20 caractére 
+  - email @ inclus .comp
+  - password  MAJuscule minuscule carctére special DIgit au minim entre 10 et 30 
+  - mobile starts with 212 or 213 or 211
+  - confirmpassword egale  password  
+
+
+
+
+
+condition operateur events  setTimeout  for 
